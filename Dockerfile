@@ -1,15 +1,11 @@
-# Use a base image with Bash already installed
-FROM ubuntu:latest
+# Use a base image
+FROM nginx:latest
 
+# Copy the HTML file to the appropriate location in the container
+COPY index.html /usr/share/nginx/html
 
-# Copy the script to the container
-COPY helloworld.sh .
-
-# Make the script executable
-RUN chmod +x helloworld.sh
-
-#Expose
+# Expose port 80 for web traffic
 EXPOSE 80
 
-# Set the command to run when the container starts
-CMD ["./helloworld.sh"]
+# Start the Nginx server
+CMD ["nginx", "-g", "daemon off;"]
