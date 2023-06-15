@@ -1,12 +1,15 @@
 # Use a base image with Bash already installed
-FROM ubuntu:20.04
+FROM ubuntu:latest
 
-# Copy the helloworld.sh script into the container at /app
-COPY helloworld.sh /app
 
+# Copy the script to the container
+COPY helloworld.sh .
+
+# Make the script executable
+RUN chmod +x helloworld.sh
 
 #Expose
 EXPOSE 80
 
-# Set the entry point of the container to the helloworld.sh script
-CMD ["/app/helloworld.sh"]
+# Set the command to run when the container starts
+CMD ["./helloworld.sh"]
