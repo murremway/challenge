@@ -1,18 +1,18 @@
   resource "oci_core_vcn" "challenge" {
-    compartment_id = "ocid1.tenancy.oc1..aaaaaaaanmhxwh7dwzgzvbqmllrsge66t3v4hm4bd3ngbxmaw6bq5zyxydxa"
+    compartment_id = "var.compartment_ocid"
     cidr_block = "10.0.0.0/16"
     dns_label    = "vcn"
   }
 
   resource "oci_core_subnet" "challenge" {
-    compartment_id = "ocid1.tenancy.oc1..aaaaaaaanmhxwh7dwzgzvbqmllrsge66t3v4hm4bd3ngbxmaw6bq5zyxydxa"
+    compartment_id = "var.compartment_ocid"
     vcn_id = oci_core_vcn.challenge.id
     cidr_block = "10.0.0.0/16"
     dns_label    = "subnet"
   }
 
   resource "oci_core_internet_gateway" "challenge" {
-  compartment_id = "ocid1.tenancy.oc1..aaaaaaaanmhxwh7dwzgzvbqmllrsge66t3v4hm4bd3ngbxmaw6bq5zyxydxa"
+  compartment_id = "var.compartment_ocid"
   vcn_id         = oci_core_vcn.challenge.id
 
   display_name = "challenge"
@@ -32,7 +32,7 @@
 }
 
   resource "oci_core_network_security_group" "challenge" {
-    compartment_id = "ocid1.tenancy.oc1..aaaaaaaanmhxwh7dwzgzvbqmllrsge66t3v4hm4bd3ngbxmaw6bq5zyxydxa"
+    compartment_id = "var.compartment_ocid"
     vcn_id         = oci_core_vcn.challenge.id
   }
 
