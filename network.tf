@@ -75,8 +75,8 @@
     source      = "0.0.0.0/0"
     tcp_options {
       destination_port_range {
-        min = 80
-        max = 80
+        min = 3000
+        max = 3000
     }
   }
 }
