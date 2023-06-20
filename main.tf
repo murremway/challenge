@@ -1,6 +1,6 @@
 
   resource "oci_core_instance" "challenge" {
-    compartment_id = "ocid1.tenancy.oc1..aaaaaaaanmhxwh7dwzgzvbqmllrsge66t3v4hm4bd3ngbxmaw6bq5zyxydxa"
+    compartment_id = "var.compartment_ocid"
     shape = "VM.Standard1.1"
     availability_domain = data.oci_identity_availability_domain.challenge.name
 
@@ -25,6 +25,6 @@
 
   
 data "oci_identity_availability_domain" "challenge" {
-  compartment_id = "ocid1.tenancy.oc1..aaaaaaaanmhxwh7dwzgzvbqmllrsge66t3v4hm4bd3ngbxmaw6bq5zyxydxa"
+  compartment_id = "var.compartment_ocid"
   ad_number      = 3
 }
